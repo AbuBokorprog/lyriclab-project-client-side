@@ -6,6 +6,9 @@ import Classes from "../Component/Classes/Classes";
 import Login from "../Component/Login/Login";
 import ErrorPage from "../Component/ErrorPage/ErrorPage";
 import Register from "../Component/Register/Register";
+import Dashboard from "../Layout/Dashboard";
+import AllUsers from "../Component/Dashboard/Allusers/AllUsers";
+import ManageClasses from "../Component/Dashboard/ManageClasses/ManageClasses";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +35,20 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+    ],
+  },
+  {
+    path: "dashboard",
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path: "allUsers",
+        element: <AllUsers></AllUsers>,
+      },
+      {
+        path: "manageClasses",
+        element: <ManageClasses></ManageClasses>,
       },
     ],
   },

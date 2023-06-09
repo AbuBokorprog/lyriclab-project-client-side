@@ -84,7 +84,7 @@ const Register = () => {
                   {...register("Name", { required: true })}
                   className="input input-bordered"
                 />
-                {errors.Name && <span>This Email is required</span>}
+                {errors.Name && <span>This Name is required</span>}
               </div>
               <div className="form-control">
                 <label className="label">
@@ -131,7 +131,12 @@ const Register = () => {
                 <input
                   type={show ? "type" : "password"}
                   placeholder="Confirm Password"
-                  {...register("confirm_password", { required: true })}
+                  {...register("password", {
+                    required: true,
+                    minLength: 6,
+                    maxLength: 20,
+                    pattern: /(?=.*[A-Z])(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]/,
+                  })}
                   className="input input-bordered"
                 />
                 <div
@@ -148,8 +153,22 @@ const Register = () => {
                     </p>
                   )}
                 </div>
-                {errors.confirm_password && (
-                  <span>This confirm Password is required</span>
+                {errors.password?.type === "maxLength" && (
+                  <p className="text-red-500" role="alert">
+                    Password must be at least 6 characters
+                  </p>
+                )}
+                {errors.password?.type === "minLength" && (
+                  <p className="text-red-500" role="alert">
+                    Password must be max length 20 characters
+                  </p>
+                )}
+                {errors.password?.type === "pattern" && (
+                  <p className="text-red-500" role="alert">
+                    Password is must be At least one upper case English letter
+                    At least one lower case English letter At least one digit At
+                    least one special character
+                  </p>
                 )}
               </div>
               <div className="form-control">
@@ -168,7 +187,7 @@ const Register = () => {
                 <input
                   className="btn btn-primary"
                   type="submit"
-                  value="Login"
+                  value="Register"
                 />
               </div>
               <div className="mt-4">

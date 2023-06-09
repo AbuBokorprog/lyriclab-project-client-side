@@ -86,7 +86,12 @@ const Login = () => {
                 <input
                   type={show ? "type" : "password"}
                   placeholder="password"
-                  {...register("password", { required: true })}
+                  {...register("password", {
+                    required: true,
+                    minLength: 6,
+                    maxLength: 20,
+                    pattern: /(?=.*[A-Z])(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]/,
+                  })}
                   className="input input-bordered"
                 />
                 <div
@@ -103,7 +108,23 @@ const Login = () => {
                     </p>
                   )}
                 </div>
-                {errors.password && <span>This Password is required</span>}
+                {errors.password?.type === "maxLength" && (
+                  <p className="text-red-500" role="alert">
+                    Password must be at least 6 characters
+                  </p>
+                )}
+                {errors.password?.type === "minLength" && (
+                  <p className="text-red-500" role="alert">
+                    Password must be max length 20 characters
+                  </p>
+                )}
+                {errors.password?.type === "pattern" && (
+                  <p className="text-red-500" role="alert">
+                    Password is must be At least one upper case English letter
+                    At least one lower case English letter At least one digit At
+                    least one special character
+                  </p>
+                )}
               </div>
               <div className="form-control mt-6">
                 <input
