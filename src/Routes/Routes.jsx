@@ -5,6 +5,7 @@ import Instructor from "../Component/Instructor/Instructor";
 import Classes from "../Component/Classes/Classes";
 import Login from "../Component/Login/Login";
 import ErrorPage from "../Component/ErrorPage/ErrorPage";
+import Register from "../Component/Register/Register";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
       },
     ],
   },
