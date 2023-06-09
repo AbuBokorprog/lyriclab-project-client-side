@@ -44,6 +44,15 @@ const Register = () => {
         setSuccess("Successfully Registered");
         setError("");
         navigate("/");
+        fetch(`http://localhost:5000/users`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+          });
       })
       .catch((error) => {
         const message = error.message;
@@ -55,7 +64,19 @@ const Register = () => {
 
   const googleHandler = () => {
     google()
-      .then(() => {})
+      .then((loggedUser) => {
+        const user = loggedUser.user;
+        console.log(user);
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(user),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+          });
+      })
       .then((error) => {});
   };
 
