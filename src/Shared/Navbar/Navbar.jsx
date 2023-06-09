@@ -23,7 +23,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar text-white max-w-screen-lg mx-auto fixed">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -61,9 +61,9 @@ const Navbar = () => {
           {nav}
         </ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end me-10">
         <Link to="/login">
-          <img src="/user.png" alt="" className="w-10" />
+          <img src="/user.png" alt="" className="w-10 bg-white rounded-full" />
         </Link>
       </div>
     </div>
