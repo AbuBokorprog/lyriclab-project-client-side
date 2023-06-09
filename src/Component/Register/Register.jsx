@@ -142,7 +142,7 @@ const Register = () => {
                   value="Login"
                 />
               </div>
-              <div>
+              <div className="mt-4">
                 <p>
                   Already registered!
                   <Link className="text-blue-600" to="/login">

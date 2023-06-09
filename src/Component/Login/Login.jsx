@@ -105,7 +105,7 @@ const Login = () => {
                   value="Login"
                 />
               </div>
-              <div>
+              <div className="mt-4">
                 <p>
                   Are you new here?
                   <Link className="text-blue-600" to="/register">
