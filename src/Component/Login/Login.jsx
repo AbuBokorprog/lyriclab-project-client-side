@@ -7,12 +7,14 @@ import { authContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { useState } from "react";
 import googlePNG from "../../assets/google.png";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 //import SigninWithSocial from "../SigninWithSocial/SigninWithSocial";
 
 const Login = () => {
   const { user, loader, signInUser, google } = useContext(authContext);
   const [error, setError] = useState([]);
   const [success, setSuccess] = useState([]);
+  const [show, setShow] = useState(false);
   //const [disabled, setDisabled] = useState(true);
 
   const location = useLocation();
@@ -34,15 +36,6 @@ const Login = () => {
       .then((loggedUser) => {
         const user = loggedUser.user;
         console.log(user);
-        Swal.fire({
-          title: "Login Successful",
-          showClass: {
-            popup: "animate__animated animate__fadeInDown",
-          },
-          hideClass: {
-            popup: "animate__animated animate__fadeOutUp",
-          },
-        });
         setError("");
       })
       .catch((error) => {
@@ -64,11 +57,11 @@ const Login = () => {
       <Helmet>
         <title> LyricLab || Login</title>
       </Helmet>
-      <div className="hero  bg-base-200">
+      <div className="hero bg-base-200">
         <div className="hero-content flex-col lg:flex-row">
           <div className="text-center lg:text-left"></div>
           <div className="card my-32 shadow-2xl bg-base-100">
-            <form onClick={handleSubmit(onSubmit)} className="card-body">
+            <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <h1 className="text-5xl font-bold">Login now!</h1>
               <div className="text-center">
                 <p className="text-success">{success}</p>
@@ -91,11 +84,25 @@ const Login = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="password"
+                  type={show ? "type" : "password"}
                   placeholder="password"
                   {...register("password", { required: true })}
                   className="input input-bordered"
                 />
+                <div
+                  className=" relative bottom-8 ml-52"
+                  onClick={() => setShow(!show)}
+                >
+                  {show ? (
+                    <p>
+                      <FaEyeSlash></FaEyeSlash>
+                    </p>
+                  ) : (
+                    <p>
+                      <FaEye></FaEye>
+                    </p>
+                  )}
+                </div>
                 {errors.password && <span>This Password is required</span>}
               </div>
               <div className="form-control mt-6">

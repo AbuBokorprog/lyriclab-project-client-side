@@ -6,13 +6,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { authContext } from "../../Provider/AuthProvider";
 import { useState } from "react";
 import googlePNG from "../../assets/google.png";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
   const { user, loader, createUser, google } = useContext(authContext);
   const [error, setError] = useState([]);
   const [success, setSuccess] = useState([]);
   const navigate = useNavigate();
-
+  const [show, setShow] = useState(false);
   const {
     register,
     handleSubmit,
@@ -63,11 +64,11 @@ const Register = () => {
       <Helmet>
         <title> LyricLab || Register</title>
       </Helmet>
-      <div className="hero  bg-base-200">
+      <div className="hero bg-base-200">
         <div className="hero-content flex-col lg:flex-row">
           <div className="text-center lg:text-left"></div>
           <div className="card my-32 shadow-2xl bg-base-100">
-            <form onClick={handleSubmit(onSubmit)} className="card-body">
+            <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <h1 className="text-5xl font-bold">Register now!</h1>
               <div className="text-center">
                 <p className="text-success">{success}</p>
@@ -102,11 +103,25 @@ const Register = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="password"
+                  type={show ? "type" : "password"}
                   placeholder="password"
                   {...register("password", { required: true })}
                   className="input input-bordered"
                 />
+                <div
+                  className=" relative bottom-8 ml-64"
+                  onClick={() => setShow(!show)}
+                >
+                  {show ? (
+                    <p>
+                      <FaEyeSlash></FaEyeSlash>
+                    </p>
+                  ) : (
+                    <p>
+                      <FaEye></FaEye>
+                    </p>
+                  )}
+                </div>
                 {errors.password && <span>This Password is required</span>}
               </div>
               <div className="form-control">
@@ -114,11 +129,25 @@ const Register = () => {
                   <span className="label-text">Confirm Password</span>
                 </label>
                 <input
-                  type="password"
+                  type={show ? "type" : "password"}
                   placeholder="Confirm Password"
                   {...register("confirm_password", { required: true })}
                   className="input input-bordered"
                 />
+                <div
+                  className=" relative bottom-8 ml-64"
+                  onClick={() => setShow(!show)}
+                >
+                  {show ? (
+                    <p>
+                      <FaEyeSlash></FaEyeSlash>
+                    </p>
+                  ) : (
+                    <p>
+                      <FaEye></FaEye>
+                    </p>
+                  )}
+                </div>
                 {errors.confirm_password && (
                   <span>This confirm Password is required</span>
                 )}
