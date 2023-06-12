@@ -9,11 +9,13 @@ import googlePNG from "../../assets/google.png";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
-  const { user, loader, createUser, google } = useContext(authContext);
+  const { user, loader, createUser, google, updateProfileData } =
+    useContext(authContext);
   const [error, setError] = useState([]);
   const [success, setSuccess] = useState([]);
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
+  const [confirmShow, setConfirmShow] = useState(false);
   const {
     register,
     handleSubmit,
@@ -26,16 +28,16 @@ const Register = () => {
     reset();
     const email = data.email;
     const password = data.password;
-    const name = data.name;
-    const image = data.image;
+    const Name = data.Name;
+    const image = data.element.image;
 
-    const confirmedPassword = watch("confirm_password");
+    /* const confirmedPassword = watch("confirm_password");
 
     if (password !== confirmedPassword) {
       setError("Passwords do not match!");
       setSuccess("");
       return;
-    }
+    } */
 
     createUser(email, password)
       .then((loggedUser) => {
@@ -43,6 +45,7 @@ const Register = () => {
         console.log(user);
         setSuccess("Successfully Registered");
         setError("");
+        updateProfileData(Name, image);
         navigate("/");
         fetch(`http://localhost:5000/users`, {
           method: "POST",
@@ -100,8 +103,8 @@ const Register = () => {
                   <span className="label-text">Name</span>
                 </label>
                 <input
-                  type="email"
-                  placeholder="email"
+                  type="text"
+                  placeholder="Name"
                   {...register("Name", { required: true })}
                   className="input input-bordered"
                 />
@@ -126,32 +129,6 @@ const Register = () => {
                 <input
                   type={show ? "type" : "password"}
                   placeholder="password"
-                  {...register("password", { required: true })}
-                  className="input input-bordered"
-                />
-                <div
-                  className=" relative bottom-8 ml-64"
-                  onClick={() => setShow(!show)}
-                >
-                  {show ? (
-                    <p>
-                      <FaEyeSlash></FaEyeSlash>
-                    </p>
-                  ) : (
-                    <p>
-                      <FaEye></FaEye>
-                    </p>
-                  )}
-                </div>
-                {errors.password && <span>This Password is required</span>}
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Confirm Password</span>
-                </label>
-                <input
-                  type={show ? "type" : "password"}
-                  placeholder="Confirm Password"
                   {...register("password", {
                     required: true,
                     minLength: 6,
@@ -191,6 +168,33 @@ const Register = () => {
                     least one special character
                   </p>
                 )}
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Confirm Password</span>
+                </label>
+                <input
+                  type={confirmShow ? "type" : "password"}
+                  name="confirm_password"
+                  placeholder="confirm_password"
+                  {...register("confirm_password", { required: true })}
+                  className="input input-bordered"
+                />
+                <div
+                  className=" relative bottom-8 ml-64"
+                  onClick={() => setConfirmShow(!confirmShow)}
+                >
+                  {confirmShow ? (
+                    <p>
+                      <FaEyeSlash></FaEyeSlash>
+                    </p>
+                  ) : (
+                    <p>
+                      <FaEye></FaEye>
+                    </p>
+                  )}
+                </div>
+                {errors.password && <span>This Password is required</span>}
               </div>
               <div className="form-control">
                 <label className="label">

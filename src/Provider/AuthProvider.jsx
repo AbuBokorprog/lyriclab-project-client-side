@@ -40,11 +40,19 @@ const AuthProvider = ({ children }) => {
       return unSubscribe();
     };
   }, []);
-  const updateUser = (name, photo) => {
-    return updateProfile(auth.currentUser, {
-      displayName: name,
-      photoURL: photo,
-    });
+  const updateProfileData = async (Name, Image) => {
+    setLoader(true);
+    try {
+      await updateProfile(auth.currentUser, {
+        displayName: Name,
+        photoURL: Image,
+      });
+      setUser(auth.currentUser);
+    } catch (error) {
+      console.log("Error updating profile:", error);
+    } finally {
+      setLoader(false);
+    }
   };
 
   const google = () => {
@@ -61,7 +69,7 @@ const AuthProvider = ({ children }) => {
     createUser,
     signInUser,
     logout,
-    updateUser,
+    updateProfileData,
     google,
   };
 

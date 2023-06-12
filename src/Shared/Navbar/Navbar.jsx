@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { authContext } from "../../Provider/AuthProvider";
 
 const Navbar = () => {
+  const { user, logout } = useContext(authContext);
+
+  const logOutHandler = () => {
+    //console.log("logged out");
+    logout()
+      .then(() => {})
+      .then((error) => {});
+  };
+
   const nav = (
     <>
       <li>
@@ -13,12 +23,20 @@ const Navbar = () => {
       <li>
         <Link to="/classes">Classes</Link>
       </li>
-      <li>
-        <Link to="dashboard">Dashboard</Link>
-      </li>
-      <li>
-        <Link to="/login">Login</Link>
-      </li>
+      {user && (
+        <li>
+          <Link to="dashboard">Dashboard</Link>
+        </li>
+      )}
+      {user?.email ? (
+        <li>
+          <Link onClick={logOutHandler}>Logout</Link>
+        </li>
+      ) : (
+        <li>
+          <Link to="/login">Login</Link>
+        </li>
+      )}
     </>
   );
 
@@ -62,9 +80,24 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end me-10">
-        <Link to="/login">
-          <img src="/user.png" alt="" className="w-10 bg-white rounded-full" />
-        </Link>
+        {user?.photoURL ? (
+          <div>
+            <img
+              src={user?.photoURL}
+              alt=""
+              className="w-20 rounded-full"
+              title={user?.displayName}
+            />
+          </div>
+        ) : (
+          <Link to="/login">
+            <img
+              src="/user.png"
+              alt=""
+              className="w-10 bg-white rounded-full"
+            />
+          </Link>
+        )}
       </div>
     </div>
   );
