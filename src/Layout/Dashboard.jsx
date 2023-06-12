@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import {
   FaHome,
@@ -8,8 +8,19 @@ import {
   FaUsers,
 } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
+import { authContext } from "../Provider/AuthProvider";
 
 const Dashboard = () => {
+  const { user } = useContext(authContext);
+  const [loggedUser, setLoggedUser] = useState([]);
+
+  fetch(`http://localhost:5000/users/${user?.email}`)
+    .then((res) => res.json())
+    .then((data) => {
+      setLoggedUser(data);
+    });
+
+  //console.log(loggedUser.role);
   return (
     <div className="">
       <Helmet>
@@ -35,59 +46,66 @@ const Dashboard = () => {
                 LyricLAB
               </h2>
             </div>
-            {/* instructor dashboard */}
-            <li>
-              <Link>
-                <FaHome></FaHome>Instructor Home
-              </Link>
-            </li>
-            <li>
-              <Link to="addClass">Add A Class</Link>
-            </li>
-            <li>
-              <Link to="myClass">My Classes</Link>
-            </li>
-            {/*  admin dashboard */}
-            {/* <li className="">
-              <Link>
-                <FaHome></FaHome>Admin Home
-              </Link>
-            </li>
-            <li>
-              <Link className="" to="manageClasses">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                  />
-                </svg>
-                Manage Classes
-              </Link>
-            </li>
-            <li>
-              <Link to="allUsers">
-                <FaUsers />
-                ALL Users
-              </Link>
-            </li> */}
-            {/* Student dashboard */}
-            {/* <li>
-            <Link>My Selected Classes</Link>
-          </li>
-          <li>
-            <Link>My Enrolled Classes</Link>
-          </li>
-          <li>
-            <Link>Payment</Link>
-          </li> */}
+            {loggedUser?.role === "Instructor" ? (
+              <>
+                <li>
+                  <Link>
+                    <FaHome></FaHome>Instructor Home
+                  </Link>
+                </li>
+                <li>
+                  <Link to="addClass">Add A Class</Link>
+                </li>
+                <li>
+                  <Link to="myClass">My Classes</Link>
+                </li>
+              </>
+            ) : loggedUser?.role === "admin" ? (
+              <>
+                <li className="">
+                  <Link>
+                    <FaHome></FaHome>Admin Home
+                  </Link>
+                </li>
+                <li>
+                  <Link className="" to="manageClasses">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="w-6 h-6"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                      />
+                    </svg>
+                    Manage Classes
+                  </Link>
+                </li>
+                <li>
+                  <Link to="allUsers">
+                    <FaUsers />
+                    ALL Users
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link>My Selected Classes</Link>
+                </li>
+                <li>
+                  <Link>My Enrolled Classes</Link>
+                </li>
+                <li>
+                  <Link>Payment</Link>
+                </li>
+              </>
+            )}
             {/* default section */}
             <div className="divider"></div>
             <li>
