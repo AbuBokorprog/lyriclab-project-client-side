@@ -25,7 +25,7 @@ const Navbar = () => {
       </li>
       {user && (
         <li>
-          <Link to="dashboard">Dashboard</Link>
+          <Link to="dashboard/allUsers">Dashboard</Link>
         </li>
       )}
       {user?.email ? (
@@ -91,11 +91,7 @@ const Navbar = () => {
           </div>
         ) : (
           <Link to="/login">
-            <img
-              src="/user.png"
-              alt=""
-              className="w-10 bg-white rounded-full"
-            />
+            <img src="/user.png" alt="" className="w-10 rounded-full" />
           </Link>
         )}
       </div>

@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { authContext } from "../../Provider/AuthProvider";
 
 const ClassesCard = ({ classes }) => {
+  const { user } = useContext(authContext);
   console.log(classes);
   const {
     Class_Name,
@@ -8,6 +10,7 @@ const ClassesCard = ({ classes }) => {
     Instructor_Name,
     available_seats,
     price,
+    enrolled,
     Class_Image,
   } = classes;
   return (
@@ -24,6 +27,7 @@ const ClassesCard = ({ classes }) => {
           Instructor Email: {Instructor_Email}
         </h3>
         <p className="">Available Seats: {available_seats}</p>
+        <p className="">Enrolled: {enrolled}</p>
         <p className="text-red-500">Cost: {price}</p>
         <div className="card-actions justify-end">
           <button className="btn btn-error">Enroll</button>
