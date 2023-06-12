@@ -35,20 +35,20 @@ const Dashboard = () => {
                 LyricLAB
               </h2>
             </div>
-            {/* instructor dashboard
-          <li>
-            <Link>
-              <FaHome></FaHome>Instructor Home
-            </Link>
-          </li>
-          <li>
-            <Link>Add A Class</Link>
-          </li>
-          <li>
-            <Link>My Classes</Link>
-          </li> */}
+            instructor dashboard
+            <li>
+              <Link>
+                <FaHome></FaHome>Instructor Home
+              </Link>
+            </li>
+            <li>
+              <Link to="addClass">Add A Class</Link>
+            </li>
+            <li>
+              <Link>My Classes</Link>
+            </li>
             {/*  admin dashboard */}
-            <li className="">
+            {/* <li className="">
               <Link>
                 <FaHome></FaHome>Admin Home
               </Link>
@@ -77,7 +77,7 @@ const Dashboard = () => {
                 <FaUsers />
                 ALL Users
               </Link>
-            </li>
+            </li> */}
             {/* Student dashboard */}
             {/* <li>
             <Link>My Selected Classes</Link>
