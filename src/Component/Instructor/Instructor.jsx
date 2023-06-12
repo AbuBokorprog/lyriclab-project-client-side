@@ -1,10 +1,53 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
+import InstructorTable from "./InstructorTable";
 
 const Instructor = () => {
+  const [instructor, setInstructor] = useState([]);
+  //console.log(instructor);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/users/instructor`)
+      .then((res) => res.json())
+      .then((data) => {
+        //console.log(data);
+        setInstructor(data);
+      });
+  }, []);
+
   return (
-    <div>
+    <div className="my-20">
+      <Helmet>
+        <title> LyricLab || Instructor</title>
+      </Helmet>
       <div>
-        <h2>Total Instructions</h2>
+        <h2 className="text-3xl font-semibold">
+          Total Instructions: {instructor.length}
+        </h2>
+      </div>
+      <div className="overflow-x-auto">
+        <table className="table">
+          {/* head */}
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Email</th>
+
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {instructor.map((i, index) => (
+              <InstructorTable
+                instructor={i}
+                key={i._id}
+                index={index + 1}
+              ></InstructorTable>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

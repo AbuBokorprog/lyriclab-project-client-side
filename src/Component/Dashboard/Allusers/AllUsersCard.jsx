@@ -3,9 +3,11 @@ import Swal from "sweetalert2";
 
 const AllUsersCard = ({ users, index }) => {
   const { email, displayName, _id } = users;
-  console.log(_id);
+  const [isAdminClicked, setIsAdminClicked] = useState(false);
+  const [isInstructorClicked, setIsInstructorClicked] = useState(false);
+  //console.log(users);
   const adminHandler = (users) => {
-    //console.log(users);
+    const { email, displayName, _id } = users;
     fetch(`http://localhost:5000/users/${users._id}`, {
       method: "PATCH",
     })
@@ -16,7 +18,7 @@ const AllUsersCard = ({ users, index }) => {
           Swal.fire({
             position: "top-end",
             icon: "success",
-            title: `${users.name} an Admin`,
+            title: `${displayName} an Admin`,
             showConfirmButton: false,
             timer: 1500,
           });
@@ -24,8 +26,9 @@ const AllUsersCard = ({ users, index }) => {
       });
   };
 
-  const instructorHandler = (id) => {
-    fetch(`http://localhost:5000/users/instructor/${id}`, {
+  const instructorHandler = (users) => {
+    const { email, displayName, _id } = users;
+    fetch(`http://localhost:5000/users/instructor/${_id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
@@ -35,7 +38,7 @@ const AllUsersCard = ({ users, index }) => {
           Swal.fire({
             position: "top-end",
             icon: "success",
-            title: `${users.name} an Instructor`,
+            title: `${displayName} an Instructor`,
             showConfirmButton: false,
             timer: 1500,
           });
@@ -56,6 +59,7 @@ const AllUsersCard = ({ users, index }) => {
             <button
               className="btn btn-outline"
               onClick={() => adminHandler(users)}
+              disabled={isInstructorClicked}
             >
               Make Admin
             </button>
@@ -66,10 +70,11 @@ const AllUsersCard = ({ users, index }) => {
         {users.role === "Instructor" ? (
           "Instructor"
         ) : (
-          <div onClick={setClicked(!clicked)}>
+          <div>
             <button
-              onClick={() => instructorHandler(_id)}
+              onClick={() => instructorHandler(users)}
               className="btn btn-outline"
+              disabled={isAdminClicked}
             >
               Make Instructor
             </button>

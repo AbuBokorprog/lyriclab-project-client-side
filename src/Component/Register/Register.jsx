@@ -29,7 +29,7 @@ const Register = () => {
     const email = data.email;
     const password = data.password;
     const Name = data.Name;
-    const image = data.element.image;
+    const image = data.image;
 
     /* const confirmedPassword = watch("confirm_password");
 
