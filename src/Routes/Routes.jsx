@@ -10,6 +10,7 @@ import Dashboard from "../Layout/Dashboard";
 import AllUsers from "../Component/Dashboard/Allusers/AllUsers";
 import ManageClasses from "../Component/Dashboard/ManageClasses/ManageClasses";
 import AddClass from "../Component/Dashboard/Instructor/AddClass/AddClass";
+import MyClass from "../Component/Dashboard/Instructor/MyClass/MyClass";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       {
         path: "addClass",
         element: <AddClass></AddClass>,
+      },
+      {
+        path: "myClass",
+        element: <MyClass></MyClass>,
       },
     ],
   },

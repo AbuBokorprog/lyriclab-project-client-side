@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 const AddClass = () => {
   const { user } = useContext(authContext);
-  //console.log(user?.displayName);
+
   const {
     register,
     handleSubmit,
@@ -17,6 +17,7 @@ const AddClass = () => {
 
   const onSubmit = (data) => {
     //console.log(data);
+    reset();
     fetch("http://localhost:5000/classes", {
       method: "POST",
       headers: { "content-type": "application/json" },
@@ -110,17 +111,31 @@ const AddClass = () => {
             />
           </div>
         </div>
-        <div className="form-control w-full mb-4 ">
-          <label className="label">
-            <span className="label-text">Class Image</span>
-          </label>
-          <input
-            type="text"
-            {...register("Class_Image", { required: true })}
-            name="Class_Image"
-            placeholder="Photo URL"
-            className="input input-bordered w-full"
-          />
+        <div className="flex gap-2">
+          <div className="form-control w-full mb-4 ">
+            <label className="label">
+              <span className="label-text">Class Image</span>
+            </label>
+            <input
+              type="text"
+              {...register("Class_Image", { required: true })}
+              name="Class_Image"
+              placeholder="Photo URL"
+              className="input input-bordered w-full"
+            />
+          </div>
+          <div className="form-control w-full mb-4 ">
+            <label className="label">
+              <span className="label-text">Status</span>
+            </label>
+            <input
+              type="text"
+              {...register("status", { required: true })}
+              defaultValue="Pending"
+              placeholder="Photo URL"
+              className="input input-bordered w-full"
+            />
+          </div>
         </div>
         <div className="form-control">
           <input type="submit" value="Add Class" className="btn btn-outline" />

@@ -8,7 +8,7 @@ const AllUsersCard = ({ users, index }) => {
   //console.log(users);
   const adminHandler = (users) => {
     const { email, displayName, _id } = users;
-    fetch(`http://localhost:5000/users/${users._id}`, {
+    fetch(`http://localhost:5000/users/admin/${users._id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
