@@ -7,13 +7,12 @@ const MyClass = () => {
   const { user } = useContext(authContext);
   //const { email } = user;
   const [myClass, setMyClass] = useState([]);
-  console.log(user?.email);
   useEffect(() => {
-    fetch(`http://localhost:5000/classes?${user?.email}`)
+    fetch(`http://localhost:5000/classes/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setMyClass(data);
-        //console.log(data);
+        console.log(data);
       });
   }, []);
   return (
