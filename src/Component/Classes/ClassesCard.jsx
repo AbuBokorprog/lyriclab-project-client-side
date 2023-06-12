@@ -1,9 +1,12 @@
 import React, { useContext } from "react";
 import { authContext } from "../../Provider/AuthProvider";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ClassesCard = ({ classes }) => {
   const { user } = useContext(authContext);
-  console.log(classes);
+  //console.log(classes);
+  const navigate = useNavigate();
   const {
     Class_Name,
     Instructor_Email,
@@ -13,6 +16,28 @@ const ClassesCard = ({ classes }) => {
     enrolled,
     Class_Image,
   } = classes;
+  const SelectBtn = (classes) => {
+    if (!user?.email) {
+      return navigate("/login");
+    }
+    fetch("http://localhost:5000/select", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(classes),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        // if (data.insertedId) {
+        //   Swal.fire({
+        //     icon: "success",
+        //     title: "Selected Course successfully",
+        //     text: "Selected",
+        //   });
+        // }
+        alert("selected");
+      });
+  };
   return (
     <div className="card bg-base-100 shadow-xl">
       <figure>
@@ -30,7 +55,9 @@ const ClassesCard = ({ classes }) => {
         <p className="">Enrolled: {enrolled}</p>
         <p className="text-red-500">Cost: {price}</p>
         <div className="card-actions justify-end">
-          <button className="btn btn-error">Enroll</button>
+          <button onClick={() => SelectBtn(classes)} className="btn btn-error">
+            Select Course
+          </button>
         </div>
       </div>
     </div>

@@ -13,7 +13,7 @@ const Classes = () => {
       });
   }, []);
 
-  console.log(classes);
+  //console.log(classes);
 
   return (
     <div className="mb-20">
