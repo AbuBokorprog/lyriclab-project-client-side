@@ -13,7 +13,7 @@ const ManageClasses = () => {
       });
   }, []);
 
-  console.log(classes);
+  //console.log(classes);
   return (
     <div className="mb-20 overflow-x-auto w-full">
       <Helmet>

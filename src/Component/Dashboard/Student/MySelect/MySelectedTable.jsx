@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const MySelectedTable = ({ select, index }) => {
   const { Class_Image, Class_Name, Instructor_Email, available_seats, price } =
@@ -26,7 +27,7 @@ const MySelectedTable = ({ select, index }) => {
       <td>{available_seats}</td>
       <td>{price}</td>
       <td>
-        <button className="btn btn-warning">Pay</button>
+        <Link className="btn btn-warning">Pay</Link>
       </td>
       <td>
         <button onClick={() => deleteButton(select)} className="btn btn-error">

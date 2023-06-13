@@ -90,7 +90,10 @@ const ManageClassCard = ({ classes, index }) => {
         </button>
       </td>
       <td>
-        <button className="btn btn-outline">FeedBack</button>
+        {/* Open the modal using ID.showModal() method */}
+        <button className="btn" onClick={() => window.my_modal_2.showModal()}>
+          open modal
+        </button>
       </td>
     </tr>
   );
