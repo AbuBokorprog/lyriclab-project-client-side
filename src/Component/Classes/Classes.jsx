@@ -5,11 +5,14 @@ import ClassesCard from "./ClassesCard";
 const Classes = () => {
   const [classes, setClasses] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/classes/status`)
+    fetch("http://localhost:5000/classes")
       .then((res) => res.json())
       .then((data) => {
         //console.log(data);
-        setClasses(data);
+
+        const AcceptedClass = data.filter((ac) => ac.status === "Accepted");
+        //setClasses(data);
+        setClasses(AcceptedClass);
       });
   }, []);
 
