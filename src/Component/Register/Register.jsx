@@ -31,13 +31,10 @@ const Register = () => {
     const Name = data.Name;
     const image = data.image;
 
-    /* const confirmedPassword = watch("confirm_password");
-
-    if (password !== confirmedPassword) {
-      setError("Passwords do not match!");
-      setSuccess("");
+    if (password !== data.confirm_password) {
+      setError("Passwords do not match");
       return;
-    } */
+    }
 
     createUser(email, password)
       .then((loggedUser) => {

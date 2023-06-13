@@ -12,6 +12,7 @@ import ManageClasses from "../Component/Dashboard/ManageClasses/ManageClasses";
 import AddClass from "../Component/Dashboard/Instructor/AddClass/AddClass";
 import MyClass from "../Component/Dashboard/Instructor/MyClass/MyClass";
 import MySelected from "../Component/Dashboard/Student/MySelect/MySelected";
+import Payment from "../Component/Dashboard/Student/MySelect/Payment/Payment";
 
 const router = createBrowserRouter([
   {
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
       {
         path: "mySelectedClass",
         element: <MySelected></MySelected>,
+      },
+      {
+        path: "payment",
+        element: <Payment></Payment>,
       },
     ],
   },

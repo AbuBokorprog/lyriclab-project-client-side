@@ -90,10 +90,37 @@ const ManageClassCard = ({ classes, index }) => {
         </button>
       </td>
       <td>
-        {/* Open the modal using ID.showModal() method */}
-        <button className="btn" onClick={() => window.my_modal_2.showModal()}>
+        <button className="btn" data-toggle="modal" data-target="#my_modal_3">
           open modal
         </button>
+        <div
+          className="modal"
+          id="my_modal_3"
+          tabIndex="-1"
+          role="dialog"
+          aria-labelledby="modal_title"
+          aria-hidden="true"
+        >
+          <div className="modal-box py-32">
+            <button
+              className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              ✕
+            </button>
+            <h3 className="font-bold text-lg">Reason!</h3>
+            <textarea
+              className="textarea my-5 textarea-primary w-full"
+              placeholder="Describe"
+            ></textarea>
+            <input
+              className="btn mx-auto text-center"
+              type="submit"
+              value="Feedback"
+            />
+          </div>
+        </div>
       </td>
     </tr>
   );
