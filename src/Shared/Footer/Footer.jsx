@@ -1,5 +1,4 @@
 import React from "react";
-import footerCover from "../../assets/footer/male-musician-playing-acoustic-guitar-dark-room-copy-space.jpg";
 
 const Footer = () => {
   return (
