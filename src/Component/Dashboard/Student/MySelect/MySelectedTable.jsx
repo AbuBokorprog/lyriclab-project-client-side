@@ -3,6 +3,18 @@ import React from "react";
 const MySelectedTable = ({ select, index }) => {
   const { Class_Image, Class_Name, Instructor_Email, available_seats, price } =
     select;
+
+  const deleteButton = (select) => {
+    //console.log("delete selected");
+    fetch(`http://localhost:5000/select/${select._id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
+
   return (
     <tr className="bg-base-200">
       <th>{index}</th>
@@ -17,7 +29,9 @@ const MySelectedTable = ({ select, index }) => {
         <button className="btn btn-warning">Pay</button>
       </td>
       <td>
-        <button className="btn btn-error">Delete</button>
+        <button onClick={() => deleteButton(select)} className="btn btn-error">
+          Delete
+        </button>
       </td>
     </tr>
   );
