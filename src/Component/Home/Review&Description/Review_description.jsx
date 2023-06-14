@@ -48,13 +48,13 @@ const Review_description = () => {
               <div className="card-body">
                 <img src={quote} alt="" className="w-10" />
                 <p>
-                  I thoroughly enjoyed the LyricalLab website class! The
-                  instructor's teaching style was engaging, and the course
-                  material was well-structured. I learned valuable skills in web
-                  development and design that I could apply immediately. The
-                  hands-on projects helped me gain practical experience, and the
-                  instructor provided helpful feedback throughout the course.
-                  Highly recommended!
+                  Taking the LyricalLab website class was a game-changer for me.
+                  The class not only taught me the technical aspects of building
+                  websites but also emphasized creativity and user experience.
+                  The instructors were knowledgeable and approachable, always
+                  willing to answer questions and provide guidance. I now feel
+                  confident in my ability to create visually stunning and
+                  user-friendly websites. Thank you, LyricalLab!
                 </p>
               </div>
             </div>
@@ -64,13 +64,14 @@ const Review_description = () => {
               <div className="card-body">
                 <img src={quote} alt="" className="w-10" />
                 <p>
-                  I thoroughly enjoyed the LyricalLab website class! The
-                  instructor's teaching style was engaging, and the course
-                  material was well-structured. I learned valuable skills in web
-                  development and design that I could apply immediately. The
-                  hands-on projects helped me gain practical experience, and the
-                  instructor provided helpful feedback throughout the course.
-                  Highly recommended!
+                  The LyricalLab website class exceeded my expectations! The
+                  curriculum was comprehensive, covering everything from HTML
+                  and CSS to responsive design and JavaScript. The instructors
+                  were fantastic, breaking down complex concepts into easily
+                  understandable chunks. The class projects allowed me to apply
+                  what I learned and build a professional-looking portfolio
+                  website. I highly recommend this class to anyone interested in
+                  web development
                 </p>
               </div>
             </div>
@@ -80,13 +81,14 @@ const Review_description = () => {
               <div className="card-body">
                 <img src={quote} alt="" className="w-10" />
                 <p>
-                  I thoroughly enjoyed the LyricalLab website class! The
-                  instructor's teaching style was engaging, and the course
-                  material was well-structured. I learned valuable skills in web
-                  development and design that I could apply immediately. The
-                  hands-on projects helped me gain practical experience, and the
-                  instructor provided helpful feedback throughout the course.
-                  Highly recommended!
+                  I had an amazing experience with the LyricalLab website class.
+                  The instructors were not only experts in their field but also
+                  great mentors. They provided valuable insights and practical
+                  tips that helped me improve my coding skills. The class
+                  fostered a collaborative learning environment, and I
+                  appreciated the constructive feedback from both instructors
+                  and peers. I now feel more confident and ready to pursue a
+                  career in web development. Thank you, LyricalLab!
                 </p>
               </div>
             </div>

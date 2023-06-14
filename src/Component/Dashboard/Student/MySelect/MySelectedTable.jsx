@@ -27,7 +27,9 @@ const MySelectedTable = ({ select, index }) => {
       <td>{available_seats}</td>
       <td>{price}</td>
       <td>
-        <Link className="btn btn-warning">Pay</Link>
+        <Link to="dashboard/payment" className="btn btn-warning">
+          Pay
+        </Link>
       </td>
       <td>
         <button onClick={() => deleteButton(select)} className="btn btn-error">
