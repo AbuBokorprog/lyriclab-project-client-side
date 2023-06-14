@@ -4,7 +4,6 @@ import TopInstructorCard from "./TopInstructorCard";
 
 const PopularInstruction = () => {
   const [topInstructors, setTopInstructors] = useState([]);
-
   useEffect(() => {
     fetch("https://lyricallab-server-side.vercel.app/instructors/top")
       .then((res) => res.json())

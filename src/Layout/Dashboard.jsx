@@ -15,9 +15,9 @@ const Dashboard = () => {
     .then((res) => res.json())
     .then((data) => {
       setLoggedUser(data);
+      console.log(data);
     });
 
-  //console.log(loggedUser.role);
   return (
     <div className="">
       <Helmet>

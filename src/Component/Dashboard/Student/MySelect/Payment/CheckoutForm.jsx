@@ -11,6 +11,7 @@ const CheckoutForm = () => {
   const [clientSecret, setClientSecret] = useState();
   const selectedClass = JSON.parse(localStorage.getItem("selectedClass"));
   const { price } = selectedClass;
+  console.log(price);
   useEffect(() => {
     fetch(`http://localhost:5000/create-payment-intent`, {
       method: "POST",
@@ -19,7 +20,7 @@ const CheckoutForm = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.clientSecret);
+        //console.log(data.clientSecret);
         setClientSecret(data.clientSecret);
       });
   }, [price]);

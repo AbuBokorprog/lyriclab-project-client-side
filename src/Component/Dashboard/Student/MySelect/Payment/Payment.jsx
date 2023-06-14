@@ -13,9 +13,12 @@ const Payment = () => {
         <title>LyricLab || Payment</title>
       </Helmet>
       <SetTitle title="Payment"></SetTitle>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, suscipit.
-      </p>
+      <div className="mx-44">
+        <p>
+          Securely make payments for our premium music courses and unlock a
+          world of musical possibilities. Start your musical journey today!
+        </p>
+      </div>
       <Elements stripe={stripePromise}>
         <CheckoutForm />
       </Elements>
