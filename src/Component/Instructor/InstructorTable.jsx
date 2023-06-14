@@ -1,7 +1,7 @@
 import React from "react";
 
 const InstructorTable = ({ instructor, index }) => {
-  console.log(instructor);
+  // console.log(instructor);
   const { email, image, Name, _id } = instructor;
   return (
     <tr className="bg-gradient-to-r border-y-2 border-black from-purple-500 to-pink-500">

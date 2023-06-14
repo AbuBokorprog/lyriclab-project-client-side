@@ -26,7 +26,7 @@ const AllUsersCard = ({ users, index }) => {
         }
       });
   };
-  console.log(users);
+  //console.log(users);
   const instructorHandler = (users) => {
     const { email, displayName, _id } = users;
     fetch(`http://localhost:5000/users/instructor/${_id}`, {

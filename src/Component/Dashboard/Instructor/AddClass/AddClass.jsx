@@ -18,7 +18,7 @@ const AddClass = () => {
   const onSubmit = (data) => {
     //console.log(data);
     reset();
-    fetch("http://localhost:5000/classes", {
+    fetch("https://lyricallab-server-side.vercel.app/classes", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),

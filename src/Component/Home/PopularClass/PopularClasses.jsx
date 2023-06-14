@@ -5,7 +5,7 @@ import SetTitle from "../../../SetTitle";
 const PopularClasses = () => {
   const [popular, setPopular] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/classes")
+    fetch("https://lyricallab-server-side.vercel.app/classes")
       .then((res) => res.json())
       .then((data) => {
         //console.log(data);

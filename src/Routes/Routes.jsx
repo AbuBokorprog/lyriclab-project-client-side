@@ -13,6 +13,8 @@ import AddClass from "../Component/Dashboard/Instructor/AddClass/AddClass";
 import MyClass from "../Component/Dashboard/Instructor/MyClass/MyClass";
 import MySelected from "../Component/Dashboard/Student/MySelect/MySelected";
 import Payment from "../Component/Dashboard/Student/MySelect/Payment/Payment";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import AdminRoute from "../PrivateRoute/AdminRoute";
 
 const router = createBrowserRouter([
   {
@@ -44,15 +46,27 @@ const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <Dashboard></Dashboard>,
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "allUsers",
-        element: <AllUsers></AllUsers>,
+        element: (
+          <AdminRoute>
+            <AllUsers></AllUsers>
+          </AdminRoute>
+        ),
       },
       {
         path: "manageClasses",
-        element: <ManageClasses></ManageClasses>,
+        element: (
+          <AdminRoute>
+            <ManageClasses></ManageClasses>
+          </AdminRoute>
+        ),
       },
       {
         path: "addClass",

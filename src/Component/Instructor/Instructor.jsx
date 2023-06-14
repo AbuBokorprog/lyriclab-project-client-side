@@ -7,7 +7,7 @@ const Instructor = () => {
   //console.log(instructor);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users/instructor`)
+    fetch(`https://lyricallab-server-side.vercel.app/users/instructor`)
       .then((res) => res.json())
       .then((data) => {
         //console.log(data);

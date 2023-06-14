@@ -6,7 +6,7 @@ const PopularInstruction = () => {
   const [topInstructors, setTopInstructors] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/instructors/top")
+    fetch("https://lyricallab-server-side.vercel.app/instructors/top")
       .then((res) => res.json())
       .then((data) => {
         setTopInstructors(data);
@@ -15,7 +15,7 @@ const PopularInstruction = () => {
         console.error("Error:", error);
       });
   }, []);
-  console.log(topInstructors);
+  //console.log(topInstructors);
   return (
     <div className="my-20">
       <div>

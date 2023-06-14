@@ -5,7 +5,7 @@ const MySelected = () => {
   const [selected, setSelected] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/select")
+    fetch("https://lyricallab-server-side.vercel.app/select")
       .then((res) => res.json())
       .then((data) => {
         //console.log(data);

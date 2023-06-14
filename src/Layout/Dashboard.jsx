@@ -1,15 +1,8 @@
 import React, { useContext, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-import {
-  FaHome,
-  FaShoppingCart,
-  FaUtensils,
-  FaAddressBook,
-  FaUsers,
-} from "react-icons/fa";
+import { FaHome, FaUsers } from "react-icons/fa";
 import learning from "../../src/assets/online-learning.png";
 import presentation from "../../src/assets/presentation.png";
-import credit from "../../src/assets/credit-card.png";
 import bank from "../../src/assets/bank-account.png";
 import { Helmet } from "react-helmet-async";
 import { authContext } from "../Provider/AuthProvider";
@@ -18,7 +11,7 @@ const Dashboard = () => {
   const { user } = useContext(authContext);
   const [loggedUser, setLoggedUser] = useState([]);
 
-  fetch(`http://localhost:5000/users/${user?.email}`)
+  fetch(`https://lyricallab-server-side.vercel.app/users/${user?.email}`)
     .then((res) => res.json())
     .then((data) => {
       setLoggedUser(data);
@@ -63,13 +56,13 @@ const Dashboard = () => {
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
-                      stroke-width="1.5"
+                      strokeWidth="1.5"
                       stroke="currentColor"
-                      class="w-6 h-6"
+                      className="w-6 h-6"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         d="M12 4.5v15m7.5-7.5h-15"
                       />
                     </svg>

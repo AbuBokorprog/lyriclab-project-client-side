@@ -6,7 +6,7 @@ const AllUsers = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/users")
+    fetch("https://lyricallab-server-side.vercel.app/users")
       .then((res) => res.json())
       .then((data) => {
         //console.log(data);

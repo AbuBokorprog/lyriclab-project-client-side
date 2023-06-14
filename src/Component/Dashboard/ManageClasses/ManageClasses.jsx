@@ -5,7 +5,7 @@ import ManageClassCard from "./ManageClassCard";
 const ManageClasses = () => {
   const [classes, setClasses] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/classes`)
+    fetch(`https://lyricallab-server-side.vercel.app/classes`)
       .then((res) => res.json())
       .then((data) => {
         //console.log(data);
