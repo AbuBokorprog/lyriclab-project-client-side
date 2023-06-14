@@ -18,10 +18,9 @@ const Footer = () => {
               src="../../../public/Classic Rock Country Guitar Music Vintage Retro logo template.png"
               alt=""
             />
-            <p>
-              ACME Industries Ltd.
-              <br />
-              Providing reliable tech since 1992
+            <p className="text-red-600">
+              Unleash your musical potential with our online platform offering
+              high-quality music education and interactive learning experiences.
             </p>
           </div>
           <div className="pl-20 text-xl">

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import CheckoutForm from "./Payment/CheckoutForm";
 
 const MySelectedTable = ({ select, index }) => {
   const { Class_Image, Class_Name, Instructor_Email, available_seats, price } =
@@ -16,6 +17,10 @@ const MySelectedTable = ({ select, index }) => {
       });
   };
 
+  const payButton = (select) => {
+    localStorage.setItem("selectedClass", JSON.stringify(select));
+  };
+
   return (
     <tr className="bg-base-200">
       <th>{index}</th>
@@ -27,7 +32,11 @@ const MySelectedTable = ({ select, index }) => {
       <td>{available_seats}</td>
       <td>{price}</td>
       <td>
-        <Link to="dashboard/payment" className="btn btn-warning">
+        <Link
+          onClick={() => payButton(select)}
+          to="/dashboard/payment"
+          className="btn btn-warning"
+        >
           Pay
         </Link>
       </td>

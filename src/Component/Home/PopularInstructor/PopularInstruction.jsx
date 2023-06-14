@@ -21,6 +21,10 @@ const PopularInstruction = () => {
       <div>
         <SetTitle title="Our Most popular Instructor"></SetTitle>
       </div>
+      <p className="text-center mb-4 font-medium">
+        Meet our exceptional instructors, masters in their craft, ready to guide
+        and inspire you on your musical journey.
+      </p>
       <dir className="grid grid-cols-6 gap-4">
         {topInstructors.map((topI) => (
           <TopInstructorCard

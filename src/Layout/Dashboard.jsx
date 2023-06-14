@@ -7,6 +7,10 @@ import {
   FaAddressBook,
   FaUsers,
 } from "react-icons/fa";
+import learning from "../../src/assets/online-learning.png";
+import presentation from "../../src/assets/presentation.png";
+import credit from "../../src/assets/credit-card.png";
+import bank from "../../src/assets/bank-account.png";
 import { Helmet } from "react-helmet-async";
 import { authContext } from "../Provider/AuthProvider";
 
@@ -40,7 +44,7 @@ const Dashboard = () => {
         <div className="drawer-side">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
 
-          <ul className="menu hover:from-pink-500 hover:to-yellow-500 p-4 w-80 h-full text-xl font-medium text-white bg-gradient-to-r from-black to-red-500">
+          <ul className="menu hover:from-pink-500 hover:to-yellow-500 p-4 w-80 h-full text-xl font-medium text-white bg-gradient-to-r from-red-500 to-black">
             <div>
               <h2 className="text-3xl font-semibold text-center my-2">
                 LyricLAB
@@ -54,10 +58,29 @@ const Dashboard = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="addClass">Add A Class</Link>
+                  <Link to="addClass">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-6 h-6"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 4.5v15m7.5-7.5h-15"
+                      />
+                    </svg>
+                    Add A Class
+                  </Link>
                 </li>
                 <li>
-                  <Link to="myClass">My Classes</Link>
+                  <Link to="myClass">
+                    <img src={learning} className="w-10" alt="" />
+                    My Classes
+                  </Link>
                 </li>
               </>
             ) : loggedUser?.role === "admin" ? (
@@ -99,16 +122,28 @@ const Dashboard = () => {
                   <Link>Student Home</Link>
                 </li>
                 <li>
-                  <Link to="mySelectedClass">My Selected Classes</Link>
+                  <Link to="mySelectedClass">
+                    <span>
+                      <img src={presentation} alt="" className="w-10" />
+                    </span>
+                    My Selected Classes
+                  </Link>
                 </li>
                 <li>
-                  <Link to="enrolledClass">My Enrolled Classes</Link>
+                  <Link to="enrolledClass">
+                    <span>
+                      <img src={learning} alt="" className="w-10" />
+                    </span>
+                    My Enrolled Classes
+                  </Link>
                 </li>
                 <li>
-                  <Link to="payment">Payment</Link>
-                </li>
-                <li>
-                  <Link to="paymentHistory">Payment History</Link>
+                  <Link to="paymentHistory">
+                    <span>
+                      <img src={bank} alt="" className="w-10" />
+                    </span>
+                    Payment History
+                  </Link>
                 </li>
               </>
             )}

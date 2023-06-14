@@ -22,6 +22,10 @@ const PopularClasses = () => {
       <div className="mb-4">
         <SetTitle title="Our Most Popular Class"></SetTitle>
       </div>
+      <p className="text-center mb-4 font-medium">
+        Explore our popular classes and unlock your creative potential with
+        expert instructors. Enroll today and embrace your passion for music.
+      </p>
       <div className="grid grid-cols-3 gap-5 content-center">
         {popular.slice(0, 6).map((pop) => (
           <PopularClassCard popularClass={pop} key={pop._id}></PopularClassCard>

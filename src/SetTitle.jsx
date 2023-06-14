@@ -5,7 +5,7 @@ import speaker from "../src/assets/karaoke.png";
 const SetTitle = ({ title }) => {
   return (
     <div className="w-4/12 mx-auto text-center">
-      <h3 className="text-red-400 flex gap-2 text-3xl py-2">
+      <h3 className="text-red-400 font-semibold flex gap-2 text-3xl py-2">
         <span>
           <img src={speaker} alt="" className="w-10" />
         </span>

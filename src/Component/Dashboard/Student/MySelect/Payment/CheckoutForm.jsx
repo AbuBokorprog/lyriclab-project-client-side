@@ -1,13 +1,31 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { authContext } from "../../../../../Provider/AuthProvider";
 
 const CheckoutForm = () => {
+  const { user } = useContext(authContext);
+
   const stripe = useStripe();
   const elements = useElements();
-  const [error, setError] = useState();
+  const [paymentError, setPaymentError] = useState();
+  const [clientSecret, setClientSecret] = useState();
+  const selectedClass = JSON.parse(localStorage.getItem("selectedClass"));
+  const { price } = selectedClass;
+  useEffect(() => {
+    fetch(`http://localhost:5000/create-payment-intent`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ price: price }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.clientSecret);
+        setClientSecret(data.clientSecret);
+      });
+  }, [price]);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     if (!stripe || !elements) {
       return;
     }
@@ -17,17 +35,34 @@ const CheckoutForm = () => {
       return;
     }
 
-    const { error, paymentMethod } = await stripe.createPaymentMethod({
+    const { CreateError, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
       card,
     });
 
-    if (error) {
-      setError("[error]", error);
+    if (CreateError) {
+      setPaymentError("[error]", CreateError);
     } else {
       setError();
       console.log("[PaymentMethod]", paymentMethod);
     }
+
+    const { paymentIntent, error } = await stripe.confirmCardPayment(
+      clientSecret,
+      {
+        payment_method: {
+          card: card,
+          billing_details: {
+            name: user?.Name || "Unknown",
+            email: user?.email || "Unknown",
+          },
+        },
+      }
+    );
+    if (error) {
+      console.log(error);
+    }
+    console.log(paymentIntent);
   };
 
   return (
@@ -52,12 +87,12 @@ const CheckoutForm = () => {
         <button
           className="btn my-4 btn-outline btn-error px-8"
           type="submit"
-          disabled={!stripe}
+          disabled={!stripe || !clientSecret}
         >
           Pay
         </button>
       </form>
-      {error && <p>{error}</p>}
+      {paymentError && <p>{paymentError}</p>}
     </div>
   );
 };
