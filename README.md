@@ -1,4 +1,4 @@
-### LayricLab
+# LayricLab
 
 # Features of LayricLab:
 - You can use easily interect with out Instructor.
