@@ -11,8 +11,8 @@ import { Autoplay, Pagination } from "swiper";
 
 const Review_description = () => {
   return (
-    <div className="my-20 flex gap-4">
-      <div className="w-1/2">
+    <div className="my-20 lg:flex gap-4">
+      <div className="lg:w-1/2">
         <Swiper
           spaceBetween={30}
           centeredSlides={true}

@@ -9,7 +9,6 @@ const PopularClasses = () => {
       .then((res) => res.json())
       .then((data) => {
         //console.log(data);
-
         const AcceptedClass = data.filter((ac) => ac.status === "Accepted");
         const enrolled = AcceptedClass.filter((e) => e.enrolled > 60);
         //setClasses(data);
@@ -26,7 +25,7 @@ const PopularClasses = () => {
         Explore our popular classes and unlock your creative potential with
         expert instructors. Enroll today and embrace your passion for music.
       </p>
-      <div className="grid grid-cols-3 gap-5 content-center">
+      <div className="grid lg:grid-cols-3 gap-5 content-center">
         {popular.slice(0, 6).map((pop) => (
           <PopularClassCard popularClass={pop} key={pop._id}></PopularClassCard>
         ))}

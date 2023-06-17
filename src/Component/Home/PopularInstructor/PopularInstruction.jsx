@@ -24,7 +24,7 @@ const PopularInstruction = () => {
         Meet our exceptional instructors, masters in their craft, ready to guide
         and inspire you on your musical journey.
       </p>
-      <dir className="grid grid-cols-6 gap-4">
+      <dir className="grid lg:grid-cols-6 gap-4">
         {topInstructors.map((topI) => (
           <TopInstructorCard
             topInstructors={topI}

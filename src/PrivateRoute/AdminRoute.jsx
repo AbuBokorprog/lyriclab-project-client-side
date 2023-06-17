@@ -4,7 +4,7 @@ import { Navigate } from "react-router-dom";
 
 const AdminRoute = ({ children }) => {
   const { user, loader } = useContext(authContext);
-  if (user?.role == "admin") {
+  if (user?.role === "admin") {
     return { children };
   }
   if (loader) {
