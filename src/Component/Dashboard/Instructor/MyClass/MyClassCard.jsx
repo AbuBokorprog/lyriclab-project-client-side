@@ -12,7 +12,7 @@ const MyClassCard = ({ MyClass }) => {
     enrolled,
     status,
   } = MyClass;
-  console.log(MyClass);
+  //console.log(MyClass);
   return (
     <div className="card lg:card-side bg-base-100 my-5 mx-auto shadow-xl">
       <figure>

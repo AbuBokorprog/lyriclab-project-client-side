@@ -15,7 +15,7 @@ const Dashboard = () => {
     .then((res) => res.json())
     .then((data) => {
       setLoggedUser(data);
-      console.log(data);
+      //console.log(data);
     });
 
   return (
