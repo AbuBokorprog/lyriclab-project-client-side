@@ -28,7 +28,7 @@ const Classes = () => {
           Total Classes: {classes.length}
         </h2>
       </div>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
         {classes.map((cl) => (
           <ClassesCard classes={cl} key={cl._id}></ClassesCard>
         ))}

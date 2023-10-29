@@ -39,7 +39,7 @@ const ClassesCard = ({ classes }) => {
       });
   };
   return (
-    <div className="card bg-base-100 h-full shadow-xl">
+    <div className="card mx-auto bg-base-100 h-full shadow-xl">
       <figure>
         <img src={Class_Image} alt="class Image" className="h-96" />
       </figure>
