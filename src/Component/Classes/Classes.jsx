@@ -19,7 +19,7 @@ const Classes = () => {
   //console.log(classes);
 
   return (
-    <div className="mb-20">
+    <div className="mb-20 container mx-auto px-4">
       <Helmet>
         <title> LyricLab || Classes</title>
       </Helmet>

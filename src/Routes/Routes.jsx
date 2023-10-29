@@ -15,6 +15,8 @@ import MySelected from "../Component/Dashboard/Student/MySelect/MySelected";
 import Payment from "../Component/Dashboard/Student/MySelect/Payment/Payment";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import AdminRoute from "../PrivateRoute/AdminRoute";
+import EnrolledClass from "../Component/Dashboard/Student/MySelect/Enrolled/EnrolledClass";
+import PaymentHistory from "../Component/Dashboard/Student/MySelect/Payment/PaymentHistory/PaymentHistory";
 
 const router = createBrowserRouter([
   {
@@ -73,8 +75,16 @@ const router = createBrowserRouter([
         element: <MySelected></MySelected>,
       },
       {
+        path: "enrolledClass",
+        element: <EnrolledClass></EnrolledClass>,
+      },
+      {
         path: "payment",
         element: <Payment></Payment>,
+      },
+      {
+        path: "paymentHistory",
+        element: <PaymentHistory></PaymentHistory>,
       },
     ],
   },

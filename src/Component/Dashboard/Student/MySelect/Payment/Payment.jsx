@@ -7,6 +7,9 @@ import { loadStripe } from "@stripe/stripe-js";
 //TODO
 const stripePromise = loadStripe(import.meta.env.VITE_PK);
 const Payment = () => {
+  const selectedClass = JSON.parse(localStorage.getItem("selectedClass"));
+  const price = selectedClass.price;
+
   return (
     <div>
       <Helmet>
@@ -20,7 +23,7 @@ const Payment = () => {
         </p>
       </div>
       <Elements stripe={stripePromise}>
-        <CheckoutForm />
+        <CheckoutForm price={price}></CheckoutForm>
       </Elements>
     </div>
   );

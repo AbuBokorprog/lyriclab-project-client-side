@@ -11,8 +11,8 @@ import { Autoplay, Pagination } from "swiper";
 
 const Review_description = () => {
   return (
-    <div className="my-20 lg:flex gap-4">
-      <div className="lg:w-1/2">
+    <div className="my-20 container mx-auto px-4 justify-center items-center lg:flex gap-4">
+      <div className="w-1/2 h-96">
         <Swiper
           spaceBetween={30}
           centeredSlides={true}
@@ -28,10 +28,10 @@ const Review_description = () => {
           className="mySwiper"
         >
           <SwiperSlide>
-            <div className="card w-full h-100 py-12 px-8 bg-red-200 shadow-xl">
+            <div className="card lg:w-full lg:h-full lg:py-12 lg:px-8 bg-red-200 shadow-xl">
               <div className="card-body">
                 <img src={quote} alt="" className="w-10" />
-                <p>
+                <p className="text-sm">
                   I thoroughly enjoyed the LyricalLab website class! The
                   instructor's teaching style was engaging, and the course
                   material was well-structured. I learned valuable skills in web
@@ -44,10 +44,10 @@ const Review_description = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="card w-full py-12 px-8 bg-red-200 shadow-xl">
+            <div className="card lg:w-full lg:h-full lg:py-12 lg:px-8 bg-red-200 shadow-xl">
               <div className="card-body">
                 <img src={quote} alt="" className="w-10" />
-                <p>
+                <p className="text-sm">
                   Taking the LyricalLab website class was a game-changer for me.
                   The class not only taught me the technical aspects of building
                   websites but also emphasized creativity and user experience.
@@ -60,10 +60,10 @@ const Review_description = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="card w-full py-12 px-8 bg-red-200 shadow-xl">
+            <div className="card lg:w-full lg:h-full lg:py-12 lg:px-8 bg-red-200 shadow-xl">
               <div className="card-body">
                 <img src={quote} alt="" className="w-10" />
-                <p>
+                <p className="text-sm">
                   The LyricalLab website class exceeded my expectations! The
                   curriculum was comprehensive, covering everything from HTML
                   and CSS to responsive design and JavaScript. The instructors
@@ -77,10 +77,10 @@ const Review_description = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="card w-full h-full py-12 px-8 bg-red-200 shadow-xl">
+            <div className="card lg:w-full lg:h-full lg:py-12 lg:px-8 bg-red-200 shadow-xl">
               <div className="card-body">
                 <img src={quote} alt="" className="w-10" />
-                <p>
+                <p className="text-sm">
                   I had an amazing experience with the LyricalLab website class.
                   The instructors were not only experts in their field but also
                   great mentors. They provided valuable insights and practical
@@ -97,6 +97,7 @@ const Review_description = () => {
       </div>
       <div>
         <img
+          className="w-full"
           src="https://images.pexels.com/photos/7149172/pexels-photo-7149172.jpeg?auto=compress&cs=tinysrgb&w=600"
           alt=""
         />

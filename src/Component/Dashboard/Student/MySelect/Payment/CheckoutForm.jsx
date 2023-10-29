@@ -2,29 +2,28 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useContext, useEffect, useState } from "react";
 import { authContext } from "../../../../../Provider/AuthProvider";
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ price }) => {
   const { user } = useContext(authContext);
 
   const stripe = useStripe();
   const elements = useElements();
   const [paymentError, setPaymentError] = useState();
-  const [clientSecret, setClientSecret] = useState();
-  const selectedClass = JSON.parse(localStorage.getItem("selectedClass"));
-  const { price } = selectedClass;
-  console.log(price);
+  const [clientSecret, setClientSecret] = useState(null);
+
+  //console.log(price);
   useEffect(() => {
     fetch(`http://localhost:5000/create-payment-intent`, {
       method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ price: price }),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(parseFloat(price)),
     })
       .then((res) => res.json())
       .then((data) => {
-        //console.log(data.clientSecret);
+        console.log(data.clientSecret);
         setClientSecret(data.clientSecret);
       });
   }, [price]);
-
+  console.log(clientSecret);
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!stripe || !elements) {
@@ -36,19 +35,20 @@ const CheckoutForm = () => {
       return;
     }
 
-    const { CreateError, paymentMethod } = await stripe.createPaymentMethod({
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
       card,
     });
 
-    if (CreateError) {
-      setPaymentError("[error]", CreateError);
+    if (error) {
+      setPaymentError("[error]", error);
     } else {
-      setError();
+      setPaymentError("");
       console.log("[PaymentMethod]", paymentMethod);
+      setClientSecret(paymentMethod);
     }
 
-    const { paymentIntent, error } = await stripe.confirmCardPayment(
+    const { paymentIntent, error: suberror } = await stripe.confirmCardPayment(
       clientSecret,
       {
         payment_method: {
@@ -60,15 +60,15 @@ const CheckoutForm = () => {
         },
       }
     );
-    if (error) {
-      console.log(error);
+    if (suberror) {
+      console.log(suberror);
     }
     console.log(paymentIntent);
   };
 
   return (
     <div>
-      <form className="" onSubmit={handleSubmit}>
+      <form className="mx-52 mt-10" onSubmit={handleSubmit}>
         <CardElement
           options={{
             style: {

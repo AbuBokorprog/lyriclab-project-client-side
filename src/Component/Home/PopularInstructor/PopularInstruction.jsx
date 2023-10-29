@@ -16,7 +16,7 @@ const PopularInstruction = () => {
   }, []);
   //console.log(topInstructors);
   return (
-    <div className="my-20">
+    <div className="container mx-auto px-4">
       <div>
         <SetTitle title="Our Most popular Instructor"></SetTitle>
       </div>
@@ -24,7 +24,7 @@ const PopularInstruction = () => {
         Meet our exceptional instructors, masters in their craft, ready to guide
         and inspire you on your musical journey.
       </p>
-      <dir className="grid lg:grid-cols-6 gap-4">
+      <dir className="grid md:grid-cols-1 lg:grid-cols-6">
         {topInstructors.map((topI) => (
           <TopInstructorCard
             topInstructors={topI}

@@ -124,7 +124,7 @@ const Register = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type={show ? "type" : "password"}
+                  type={show ? "text" : "password"}
                   placeholder="password"
                   {...register("password", {
                     required: true,

@@ -41,7 +41,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar text-black">
+    <div className="navbar container mx-auto px-4 text-black">
       <div className="navbar-start">
         <div className="dropdown">
           <label
@@ -65,7 +65,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu absolute -bottom-20 bg-red-700 menu-sm dropdown-content mt-3  p-2 shadow rounded-box w-52"
+            className="menu -bottom-44 bg-red-700 menu-sm dropdown-content mt-3  p-2 shadow rounded-box w-52"
           >
             <li>
               <Link to="/">Home</Link>
@@ -92,14 +92,13 @@ const Navbar = () => {
             )}
           </ul>
         </div>
-        <span className="flex justify-center items-center">
-          <img
-            src="/Classic Rock Country Guitar Music Vintage Retro logo template.png"
-            alt=""
-            className="w-20 rounded-full"
-          />
-          <a className="btn btn-ghost normal-case text-xl">LyricLab</a>
-        </span>
+
+        <img
+          src="/Classic Rock Country Guitar Music Vintage Retro logo template.png"
+          alt=""
+          className="w-16 rounded-full hidden lg:visible"
+        />
+        <a className="btn btn-ghost mx-auto normal-case text-xl">LyricLab</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 text-xl font-semibold">
@@ -112,7 +111,7 @@ const Navbar = () => {
             <img
               src={user?.photoURL}
               alt=""
-              className="w-8 rounded-full"
+              className="w-12 rounded-full"
               title={user?.displayName}
             />
           </div>

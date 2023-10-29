@@ -16,12 +16,12 @@ const Instructor = () => {
   }, []);
 
   return (
-    <div className="my-20">
+    <div className="my-20 container mx-auto px-4">
       <Helmet>
         <title> LyricLab || Instructor</title>
       </Helmet>
       <div>
-        <h2 className="text-3xl font-semibold">
+        <h2 className="text-3xl text-center font-semibold">
           Total Instructions: {instructor.length}
         </h2>
       </div>
@@ -34,7 +34,6 @@ const Instructor = () => {
               <th>Image</th>
               <th>Name</th>
               <th>Email</th>
-
               <th>Action</th>
             </tr>
           </thead>

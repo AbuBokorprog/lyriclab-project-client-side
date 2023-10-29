@@ -6,7 +6,7 @@ const PopularClassCard = ({ popularClass }) => {
     popularClass;
   return (
     <>
-      <div className="card  lg:w-96 h-full transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 bg-base-100 shadow-xl image-full">
+      <div className="card mx-auto h-full transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 bg-base-100 shadow-xl image-full">
         <figure>
           <img src={Class_Image} alt="Class Image" className="h-full " />
         </figure>

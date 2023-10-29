@@ -17,15 +17,16 @@ const PopularClasses = () => {
       });
   }, []);
   return (
-    <div className="my-20">
+    <div className="my-20 container mx-auto px-4">
       <div className="mb-4">
         <SetTitle title="Our Most Popular Class"></SetTitle>
+
+        <p className="text-center mb-4 font-medium">
+          Explore our popular classes and unlock your creative potential with
+          expert instructors. Enroll today and embrace your passion for music.
+        </p>
       </div>
-      <p className="text-center mb-4 font-medium">
-        Explore our popular classes and unlock your creative potential with
-        expert instructors. Enroll today and embrace your passion for music.
-      </p>
-      <div className="grid lg:grid-cols-3 gap-5 content-center">
+      <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-5">
         {popular.slice(0, 6).map((pop) => (
           <PopularClassCard popularClass={pop} key={pop._id}></PopularClassCard>
         ))}
