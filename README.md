@@ -18,6 +18,10 @@
 - React parallax
 - Swipper
 -
+## server-side-repository
+```sh
+https://github.com/AbuBokorprog/lyriclab-project-server-side
+```
 ## Live-Site:
 ```sh
 https://lyriclab-17c8b.web.app
