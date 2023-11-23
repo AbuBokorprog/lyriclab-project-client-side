@@ -6,18 +6,16 @@ const PopularClassCard = ({ popularClass }) => {
     popularClass;
   return (
     <>
-      <div className="card mx-auto h-full transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 bg-base-100 shadow-xl image-full">
-        <figure>
-          <img src={Class_Image} alt="Class Image" className="h-full " />
-        </figure>
-        <div className="card-body">
-          <h2 className="card-title">{Class_Name}</h2>
-          <p>Available Seats: {available_seats}</p>
-          <p>Total Enrolled: {enrolled}</p>
+      <div className=" card-compact shadow-xl relative">
+        <img
+          src={Class_Image}
+          alt="Shoes"
+          className="w-full h-96 rounded-xl  hover:contrast-100 contrast-50"
+        />
+
+        <div className="card-body absolute bottom-12 text-white">
+          <h2 className="card-title text-3xl">{Class_Name}</h2>
           <p>Price: {price}</p>
-          <div className="card-actions justify-end">
-            <button className="btn btn-error hover:btn">Enroll Now</button>
-          </div>
         </div>
       </div>
     </>

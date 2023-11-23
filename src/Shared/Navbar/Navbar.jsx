@@ -98,7 +98,7 @@ const Navbar = () => {
           alt=""
           className="w-16 rounded-full hidden lg:visible"
         />
-        <a className="btn btn-ghost mx-auto normal-case text-xl">LyricLab</a>
+        <a className="mx-auto font-bold bg- text-3xl">LyricLab</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 text-xl font-semibold">
@@ -111,7 +111,7 @@ const Navbar = () => {
             <img
               src={user?.photoURL}
               alt=""
-              className="w-12 rounded-full"
+              className="w-12 h-12 rounded-full"
               title={user?.displayName}
             />
           </div>

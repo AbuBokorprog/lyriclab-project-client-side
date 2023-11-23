@@ -1,18 +1,14 @@
 import React, { useRef, useState } from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import quote from "../../../assets/quote.png";
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-
-// import required modules
 import { Autoplay, Pagination } from "swiper";
 
 const Review_description = () => {
   return (
     <div className="my-20 container mx-auto px-4 justify-center items-center lg:flex gap-4">
-      <div className="w-1/2 h-96">
+      <div className="w-full">
         <Swiper
           spaceBetween={30}
           centeredSlides={true}
@@ -95,13 +91,13 @@ const Review_description = () => {
           </SwiperSlide>
         </Swiper>
       </div>
-      <div>
+      {/* <div>
         <img
           className="w-full"
           src="https://images.pexels.com/photos/7149172/pexels-photo-7149172.jpeg?auto=compress&cs=tinysrgb&w=600"
           alt=""
         />
-      </div>
+      </div> */}
     </div>
   );
 };

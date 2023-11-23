@@ -23,14 +23,14 @@ const CheckoutForm = ({ price }) => {
         setClientSecret(data.clientSecret);
       });
   }, [price]);
-  console.log(clientSecret);
+  // console.log(clientSecret);
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!stripe || !elements) {
       return;
     }
     const card = elements.getElement(CardElement);
-    console.log(card);
+    // console.log(card);
     if (card == null) {
       return;
     }
@@ -88,7 +88,7 @@ const CheckoutForm = ({ price }) => {
         <button
           className="btn my-4 btn-outline btn-error px-8"
           type="submit"
-          disabled={!stripe || !clientSecret}
+          disabled={!stripe}
         >
           Pay
         </button>

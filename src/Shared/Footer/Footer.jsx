@@ -18,34 +18,34 @@ const Footer = () => {
               src="/Classic Rock Country Guitar Music Vintage Retro logo template.png"
               alt=""
             />
-            <p className="text-red-600">
+            <p className="">
               Unleash your musical potential with our online platform offering
               high-quality music education and interactive learning experiences.
             </p>
           </div>
           <div className="lg:pl-20 lg:text-xl">
-            <span className="font-bold text-xl text-red-600">Services</span>
+            <span className="font-bold text-xl">Services</span>
             <a className="link link-hover">Branding</a>
             <a className="link link-hover">Design</a>
             <a className="link link-hover">Marketing</a>
             <a className="link link-hover">Advertisement</a>
           </div>
           <div className="lg:pl-20 lg:text-xl">
-            <span className="font-bold text-xl text-red-600">Company</span>
+            <span className="font-bold text-xl ">Company</span>
             <a className="link link-hover">About us</a>
             <a className="link link-hover">Contact</a>
             <a className="link link-hover">Jobs</a>
             <a className="link link-hover">Press kit</a>
           </div>
           <div className="pl-20 lg:text-xl">
-            <span className="font-bold text-xl text-red-600">Legal</span>
+            <span className="font-bold text-xl">Legal</span>
             <a className="link link-hover">Terms of use</a>
             <a className="link link-hover">Privacy policy</a>
             <a className="link link-hover">Cookie policy</a>
           </div>
 
           <div className="pl-20 lg:text-xl">
-            <span className="font-bold text-xl text-red-600">NewsLetter</span>
+            <span className="font-bold text-xl ">NewsLetter</span>
             <label className="label">
               <span className="label-text text-white">Email</span>
             </label>
@@ -55,7 +55,7 @@ const Footer = () => {
               className="input input-bordered w-11/12 input-accent"
             />
             <input
-              className="btn btn-error lg:w-full"
+              className="btn btn-warning lg:w-full"
               type="submit"
               value="Subscribe"
             />

@@ -20,7 +20,7 @@ const Banner = () => {
     //progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
   };
   return (
-    <div className="container mx-auto px-4 mb-20">
+    <div className="container mx-auto px-4">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -41,23 +41,19 @@ const Banner = () => {
             src="https://cdn.pixabay.com/photo/2016/11/23/15/48/audience-1853662_1280.jpg"
             className=" w-full max-h-full"
           />
-          <div className=" absolute lg:top-96 text-center lg:px-20 text-white bottom-10">
+          <div className=" absolute lg:top-80 text-center lg:px-20 text-white bottom-10">
             <h2 className="lg:text-5xl font-semibold lg:mb-4">
               Discover, Learn, and Create with Us!
             </h2>
-            <h5 className="lg:text-xl font-bold text-red-500 mb-1">
-              Enrolled Today
-            </h5>
-
             <h4 className="lg:text-3xl font-semibold">
               Discover the Rhythm of Success with LyricalLAB! Click here to
               embark on a melodic journey and uncover your musical genius.
               Discover More.
             </h4>
-            <button className="btn bg-red-500 mt-3 ">Discover More</button>
+            <button className="btn btn-warning mt-3 ">Discover More</button>
           </div>
         </SwiperSlide>
-        <SwiperSlide>
+        {/* <SwiperSlide>
           <img
             src="https://cdn.pixabay.com/photo/2022/11/28/00/42/man-7620937_1280.jpg"
             className="w-full max-h-full"
@@ -224,7 +220,7 @@ const Banner = () => {
             </h4>
             <button className="btn bg-red-500 mt-3 ">Discover More</button>
           </div>
-        </SwiperSlide>
+        </SwiperSlide> */}
         <div className="autoplay-progress" slot="container-end">
           <span ref={progressContent}></span>
         </div>
